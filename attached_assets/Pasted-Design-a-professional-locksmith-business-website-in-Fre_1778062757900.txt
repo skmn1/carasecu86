@@ -1,0 +1,33 @@
+Design a professional locksmith business website in French called "Serrurier Express". The site targets French homeowners and businesses needing emergency locksmith services.
+Overall style: Clean, trustworthy, dark navy and gold color palette. Use blue (#002395), white, and red (#ED2939) as subtle French identity accents. Professional but approachable.
+Pages / sections to design:
+
+Navigation bar — Dark navy background, logo with a lock icon on the left, nav links (Nos services, Tarifs, Zones d'intervention, Contact), and a gold "Appeler" CTA button on the right.
+Hero section — Dark navy background. Left side: a "Disponible 24h/24 – 7j/7" badge, a bold headline ("Serrurier agréé, intervention rapide"), short subtext mentioning free quote and no call-out fee, two CTA buttons (primary gold "Urgence – appeler", ghost "Devis gratuit"). Right side: a floating status card showing technician availability, average arrival time (25 min), and a 4.9/5 star rating.
+Trust bar — Gold/amber background strip with 4 icons and short labels: "Artisan certifié A2P", "Urgence 24h/24", "Devis gratuit & transparent", "Prise en charge assurance".
+Services grid — 6 cards in a 3-column grid: Ouverture de porte, Changement de serrure, Serrurier automobile, Locaux professionnels, Blindage de porte, Sécurisation. Each card has a colored icon, title, and 1-sentence description.
+Certifications band — Light gray strip showing trust badges: Label A2P, Artisan certifié, Agréé assurances, Devis normalisé.
+Emergency banner — Bold red full-width band. Left: headline "Vous êtes bloqué dehors ?", subtext about 30-minute response. Right: white pill button with a large phone number "01 23 45 67 89".
+Stats row — 4 metric cards: 25 min (délai moyen), 20 ans (expérience), 15 000+ interventions, 4,9/5 note clients.
+Reviews section — 3 customer review cards with star rating, italic quote text, avatar initials, and city (e.g. Paris 15e, Lyon 3e).
+Service zones — Light gray background, pill/chip tags listing city names (Paris, Boulogne-Billancourt, Versailles…) with a "+ 42 communes" chip in blue.
+Free quote CTA strip — Outlined card with headline "Demandez un devis gratuit", subtext about 15-minute callback, a phone number input field, and a "Être rappelé" dark button.
+Footer — Dark navy, 3 columns: brand logo + description on the left, two link columns (Prestations, Entreprise). Bottom bar with:
+
+
+Copyright line: "© 2026 Serrurier Express. Tous droits réservés."
+SIRET number: "SIRET 123 456 789"
+Certification badges: "Certifié A2P", "Agréé assurances"
+Mentions légales link (legally required in France)
+Developer credit badge in the same muted style as the other badges: "Développé par [Votre Nom]" linking to [votre-site.dev]
+
+Key UX requirements:
+
+Mobile-responsive layout
+Phone number prominently visible at all times (sticky header on scroll)
+All CTAs and labels in French
+Mentions légales link in footer (legally required in France)
+Subtle French tricolor accent (5px blue-white-red stripe) below the navbar
+Developer credit displayed discreetly but clearly in the footer bottom bar
+
+
