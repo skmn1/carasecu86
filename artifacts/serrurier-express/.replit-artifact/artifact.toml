@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Serrurier Express"
+version = "1.0.0"
+id = "artifacts/serrurier-express"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21937
+
+[services.development]
+run = "pnpm --filter @workspace/serrurier-express run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/serrurier-express", "run", "build" ]
+publicDir = "artifacts/serrurier-express/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21937"
+BASE_PATH = "/"
