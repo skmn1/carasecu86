@@ -19,9 +19,65 @@ import {
   Wrench,
   ThumbsUp,
   Award,
+  AlertTriangle,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+
+type TarifsCategory = 'Ouverture' | 'Réparation' | 'Installation' | 'Urgence';
+
+const TARIFS_BADGE: Record<TarifsCategory, string> = {
+  Ouverture: 'bg-blue-100 text-blue-800 border border-blue-200',
+  Réparation: 'bg-green-100 text-green-800 border border-green-200',
+  Installation: 'bg-purple-100 text-purple-800 border border-purple-200',
+  Urgence: 'bg-slate-100 text-slate-700 border border-slate-200',
+};
+
+const TARIFS_FILTERS: Array<{ label: string; value: TarifsCategory | 'Toutes' }> = [
+  { label: 'Toutes', value: 'Toutes' },
+  { label: 'Ouverture', value: 'Ouverture' },
+  { label: 'Réparation', value: 'Réparation' },
+  { label: 'Installation', value: 'Installation' },
+  { label: 'Urgence', value: 'Urgence' },
+];
+
+const TARIFS_DEFAULT_VISIBLE = 10;
+
+const TARIFS_ROWS: { prestation: string; categorie: TarifsCategory; prix: string }[] = [
+  { prestation: 'Ouverture porte simple claquée', categorie: 'Ouverture', prix: '110 € – 135 €' },
+  { prestation: 'Ouverture porte simple fermée à clé', categorie: 'Ouverture', prix: '135 € – 180 €' },
+  { prestation: 'Ouverture porte blindée claquée', categorie: 'Ouverture', prix: '110 € – 150 €' },
+  { prestation: 'Ouverture porte blindée fermée à clé', categorie: 'Ouverture', prix: '135 € – 190 €' },
+  { prestation: 'Clé cassée dans la serrure', categorie: 'Urgence', prix: '120 € – sur devis' },
+  { prestation: 'Intervention après cambriolage', categorie: 'Urgence', prix: '120 € – sur devis' },
+  { prestation: 'Fermeture provisoire (effraction)', categorie: 'Urgence', prix: '150 € – 250 €' },
+  { prestation: 'Installation cylindre simple européen', categorie: 'Installation', prix: '110 € – 150 €' },
+  { prestation: 'Installation cylindre blindé', categorie: 'Installation', prix: '150 € – sur devis' },
+  { prestation: 'Installation serrure simple', categorie: 'Installation', prix: '150 € – 250 €' },
+  { prestation: 'Installation serrure blindée 3 points', categorie: 'Installation', prix: '390 € – sur devis' },
+  { prestation: 'Installation serrure blindée 5-7 points', categorie: 'Installation', prix: '700 € – sur devis' },
+  { prestation: 'Installation serrure connectée', categorie: 'Installation', prix: '300 € – 600 €' },
+  { prestation: 'Installation porte blindée', categorie: 'Installation', prix: '1 990 € – sur devis' },
+  { prestation: 'Installation verrou simple', categorie: 'Installation', prix: '110 € – 190 €' },
+  { prestation: 'Installation verrou haute sécurité', categorie: 'Installation', prix: '220 € – sur devis' },
+  { prestation: 'Installation judas de porte', categorie: 'Installation', prix: '110 € – 190 €' },
+  { prestation: 'Installation cornière anti-pince', categorie: 'Installation', prix: '180 € – 300 €' },
+  { prestation: 'Installation gâche électrique', categorie: 'Installation', prix: '300 € – 600 €' },
+  { prestation: 'Installation boîte à clé', categorie: 'Installation', prix: '160 € – 260 €' },
+  { prestation: 'Réparation serrure simple', categorie: 'Réparation', prix: '120 € – sur devis' },
+  { prestation: 'Réparation serrure blindée 3 points', categorie: 'Réparation', prix: '120 € – 200 €' },
+  { prestation: 'Réparation cylindre simple européen', categorie: 'Réparation', prix: '80 € – 150 €' },
+  { prestation: 'Réparation poignée de porte', categorie: 'Réparation', prix: '120 € – 210 €' },
+  { prestation: 'Réparation verrou simple', categorie: 'Réparation', prix: '80 € – 150 €' },
+  { prestation: 'Dégrippage de serrure', categorie: 'Réparation', prix: '130 € – 180 €' },
+  { prestation: 'Ouverture boîte aux lettres', categorie: 'Ouverture', prix: '70 € – 110 €' },
+  { prestation: 'Installation serrure boîte aux lettres', categorie: 'Installation', prix: '70 € – 110 €' },
+  { prestation: 'Ouverture coffre-fort', categorie: 'Ouverture', prix: '159 € – sur devis' },
+  { prestation: 'Ouverture porte de garage', categorie: 'Ouverture', prix: '135 € – sur devis' },
+  { prestation: 'Ouverture portail extérieur', categorie: 'Ouverture', prix: '135 € – 190 €' },
+];
 
 const PHONE = '01 23 45 67 89';
 
@@ -31,6 +87,8 @@ export default function Home() {
   const [callbackPhone, setCallbackPhone] = useState('');
   const [callbackSent, setCallbackSent] = useState(false);
   const [prefilledService, setPrefilledService] = useState('');
+  const [tarifsFilter, setTarifsFilter] = useState<TarifsCategory | 'Toutes'>('Toutes');
+  const [tarifsExpanded, setTarifsExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -47,6 +105,12 @@ export default function Home() {
       if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
     }
   }, []);
+
+  function handleReserver(service: string) {
+    setPrefilledService(service);
+    const el = document.getElementById('contact');
+    if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 50);
+  }
 
   function handleCallbackSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -80,7 +144,7 @@ export default function Home() {
             <nav className="hidden md:flex items-center gap-8">
               {[
                 { label: 'Nos services', href: '#nos-services' },
-                { label: 'Tarifs', href: '/tarifs' },
+                { label: 'Tarifs', href: '#tarifs' },
                 { label: "Zones d'intervention", href: '#zones-dintervention' },
                 { label: 'Contact', href: '#contact' },
               ].map((item) => (
@@ -126,7 +190,7 @@ export default function Home() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {[
                 { label: 'Nos services', href: '#nos-services' },
-                { label: 'Tarifs', href: '/tarifs' },
+                { label: 'Tarifs', href: '#tarifs' },
                 { label: "Zones d'intervention", href: '#zones-dintervention' },
                 { label: 'Contact', href: '#contact' },
               ].map((item) => (
@@ -305,6 +369,140 @@ export default function Home() {
                 <span className="font-bold text-sm">{item.label}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5b. Tarifs */}
+      <section id="tarifs" className="scroll-mt-20">
+        {/* Sub-header */}
+        <div className="bg-[#1a2744] py-14 text-white text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none" />
+          <div className="relative z-10 max-w-3xl mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-4">Nos tarifs</h2>
+            <p className="text-slate-300 text-lg">
+              Prix TTC — déplacement, fournitures et nettoyage inclus.{' '}
+              <a
+                href={`tel:${PHONE.replace(/ /g, '')}`}
+                className="text-[#c9a84c] hover:underline font-semibold"
+              >
+                Devis gratuit au {PHONE}.
+              </a>
+            </p>
+          </div>
+        </div>
+
+        {/* Amber warning band */}
+        <div className="bg-amber-50 border-b border-amber-200 py-3">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-2 text-amber-800 text-sm font-medium text-center">
+            <AlertTriangle className="w-4 h-4 shrink-0 text-amber-500" />
+            <span>
+              Une majoration tarifaire s'applique en soirée (20h–7h), le week-end et les jours fériés.
+            </span>
+          </div>
+        </div>
+
+        <div className="bg-slate-50 py-12">
+          {/* Summary cards */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { icon: <DoorOpen className="w-6 h-6" />, label: 'Ouverture de porte', prix: '110 € – 190 €' },
+                { icon: <Key className="w-6 h-6" />, label: 'Remplacement de cylindre', prix: '110 € – 150 €' },
+                { icon: <Wrench className="w-6 h-6" />, label: 'Réparation de serrure', prix: '120 € – 300 €' },
+                { icon: <Shield className="w-6 h-6" />, label: 'Porte blindée', prix: 'à partir de 1 990 €' },
+              ].map((card) => (
+                <div key={card.label} className="text-center p-6 rounded-2xl border border-slate-100 bg-white shadow-sm">
+                  <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-[#1a2744] mx-auto mb-4">
+                    {card.icon}
+                  </div>
+                  <div className="text-lg font-black text-[#1a2744] mb-1">{card.prix}</div>
+                  <div className="text-slate-500 text-sm font-medium">{card.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pricing table */}
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Filter pills */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {TARIFS_FILTERS.map((f) => (
+                <button
+                  key={f.value}
+                  onClick={() => { setTarifsFilter(f.value); setTarifsExpanded(false); }}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all ${
+                    tarifsFilter === f.value
+                      ? 'bg-[#1a2744] text-white border-[#1a2744]'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-[#1a2744] hover:text-[#1a2744]'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Table */}
+            {(() => {
+              const filtered = tarifsFilter === 'Toutes' ? TARIFS_ROWS : TARIFS_ROWS.filter((r) => r.categorie === tarifsFilter);
+              const visible = tarifsExpanded ? filtered : filtered.slice(0, TARIFS_DEFAULT_VISIBLE);
+              const hasMore = filtered.length > TARIFS_DEFAULT_VISIBLE;
+              return (
+                <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                  <div className="hidden md:grid grid-cols-[1fr_auto_auto_auto] gap-4 px-6 py-3 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                    <span>Prestation</span>
+                    <span className="text-center w-32">Catégorie</span>
+                    <span className="text-right w-36">Fourchette de prix</span>
+                    <span className="text-right w-28">Action</span>
+                  </div>
+                  <div className="divide-y divide-slate-100">
+                    {visible.map((row, idx) => (
+                      <div
+                        key={idx}
+                        className="grid md:grid-cols-[1fr_auto_auto_auto] gap-x-4 gap-y-2 px-6 py-4 items-center hover:bg-slate-50 transition-colors"
+                      >
+                        <span className="font-medium text-slate-800 text-sm">{row.prestation}</span>
+                        <span className="md:w-32 md:text-center">
+                          <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold ${TARIFS_BADGE[row.categorie]}`}>
+                            {row.categorie}
+                          </span>
+                        </span>
+                        <span className="md:w-36 md:text-right font-semibold text-[#1a2744] text-sm">{row.prix}</span>
+                        <div className="md:w-28 md:text-right">
+                          <Button
+                            onClick={() => handleReserver(row.prestation)}
+                            className="bg-[#c9a84c] hover:bg-[#b09240] text-[#1a2744] font-bold text-xs h-8 px-4 rounded-full"
+                          >
+                            Réserver
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {hasMore && (
+                    <div className="px-6 py-4 border-t border-slate-100 flex justify-center">
+                      <button
+                        onClick={() => setTarifsExpanded(!tarifsExpanded)}
+                        className="flex items-center gap-2 text-sm font-semibold text-[#1a2744] hover:text-[#c9a84c] transition-colors"
+                      >
+                        {tarifsExpanded ? (
+                          <><ChevronUp className="w-4 h-4" />Réduire la liste</>
+                        ) : (
+                          <><ChevronDown className="w-4 h-4" />Voir tous les tarifs ({filtered.length - TARIFS_DEFAULT_VISIBLE} de plus)</>
+                        )}
+                      </button>
+                    </div>
+                  )}
+                  <div className="px-6 py-4 border-t border-slate-100 bg-slate-50">
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      Prix TTC — déplacement, main d'œuvre et nettoyage inclus. Tarifs observés sur le
+                      marché français en 2025, fournis à titre indicatif. Un devis personnalisé vous
+                      sera remis avant toute intervention.
+                    </p>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       </section>
