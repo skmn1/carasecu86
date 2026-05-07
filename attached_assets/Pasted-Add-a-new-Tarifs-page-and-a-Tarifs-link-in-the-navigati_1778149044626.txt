@@ -1,0 +1,17 @@
+Add a new "Tarifs" page and a "Tarifs" link in the navigation bar to the existing website, keeping the same visual style (dark navy, gold, white, French tricolor accent).
+Section header — Same dark navy background as the hero. Title: "Nos tarifs". Subtitle: "Prix TTC — déplacement, fournitures et nettoyage inclus. Devis gratuit au 01 23 45 67 89."
+Amber warning band directly below the header:
+⚠️ "Une majoration tarifaire s'applique en soirée (20h–7h), le week-end et les jours fériés."
+4 summary cards in a row (same card style as the stats section already on the site):
+
+Ouverture de porte → 110 € – 190 €
+Remplacement de cylindre → 110 € – 150 €
+Réparation de serrure → 120 € – 300 €
+Porte blindée → à partir de 1 990 €
+
+Filter bar with pill buttons: Toutes / Ouverture / Réparation / Installation / Urgence
+Pricing table with 4 columns: Prestation — Catégorie — Fourchette de prix — Action. Use colored category badges (blue = Ouverture, green = Réparation, purple = Installation, gray = Urgence). Show the 10 most common services by default with a "Voir tous les tarifs" expand button for the full list. Full list of rows:
+PrestationCatégoriePrixOuverture porte simple claquéeOuverture110 € – 135 €Ouverture porte simple fermée à cléOuverture135 € – 180 €Ouverture porte blindée claquéeOuverture110 € – 150 €Ouverture porte blindée fermée à cléOuverture135 € – 190 €Clé cassée dans la serrureUrgence120 € – sur devisIntervention après cambriolageUrgence120 € – sur devisFermeture provisoire (effraction)Urgence150 € – 250 €Installation cylindre simple européenInstallation110 € – 150 €Installation cylindre blindéInstallation150 € – sur devisInstallation serrure simpleInstallation150 € – 250 €Installation serrure blindée 3 pointsInstallation390 € – sur devisInstallation serrure blindée 5-7 pointsInstallation700 € – sur devisInstallation serrure connectéeInstallation300 € – 600 €Installation porte blindéeInstallation1 990 € – sur devisInstallation verrou simpleInstallation110 € – 190 €Installation verrou haute sécuritéInstallation220 € – sur devisInstallation judas de porteInstallation110 € – 190 €Installation cornière anti-pinceInstallation180 € – 300 €Installation gâche électriqueInstallation300 € – 600 €Installation boîte à cléInstallation160 € – 260 €Réparation serrure simpleRéparation120 € – sur devisRéparation serrure blindée 3 pointsRéparation120 € – 200 €Réparation cylindre simple européenRéparation80 € – 150 €Réparation poignée de porteRéparation120 € – 210 €Réparation verrou simpleRéparation80 € – 150 €Dégrippage de serrureRéparation130 € – 180 €Ouverture boîte aux lettresOuverture70 € – 110 €Installation serrure boîte aux lettresInstallation70 € – 110 €Ouverture coffre-fortOuverture159 € – sur devisOuverture porte de garageOuverture135 € – sur devisOuverture portail extérieurOuverture135 € – 190 €
+Each row has a gold "Réserver" button on the right that opens the existing contact form with the service name pre-filled.
+Table footer — muted text: "Prix TTC — déplacement, main d'œuvre et nettoyage inclus. Tarifs observés sur le marché français en 2025, fournis à titre indicatif. Un devis personnalisé vous sera remis avant toute intervention."
+Important — do not change anything else on the site. Only add the Tarifs page and the nav link. Keep all existing sections, colors, fonts, components, and footer exactly as they are.

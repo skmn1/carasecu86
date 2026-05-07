@@ -30,11 +30,22 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [callbackPhone, setCallbackPhone] = useState('');
   const [callbackSent, setCallbackSent] = useState(false);
+  const [prefilledService, setPrefilledService] = useState('');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service');
+    if (service) {
+      setPrefilledService(decodeURIComponent(service));
+      const el = document.getElementById('contact');
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
   }, []);
 
   function handleCallbackSubmit(e: React.FormEvent) {
@@ -69,7 +80,7 @@ export default function Home() {
             <nav className="hidden md:flex items-center gap-8">
               {[
                 { label: 'Nos services', href: '#nos-services' },
-                { label: 'Tarifs', href: '#tarifs' },
+                { label: 'Tarifs', href: '/tarifs' },
                 { label: "Zones d'intervention", href: '#zones-dintervention' },
                 { label: 'Contact', href: '#contact' },
               ].map((item) => (
@@ -115,7 +126,7 @@ export default function Home() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {[
                 { label: 'Nos services', href: '#nos-services' },
-                { label: 'Tarifs', href: '#tarifs' },
+                { label: 'Tarifs', href: '/tarifs' },
                 { label: "Zones d'intervention", href: '#zones-dintervention' },
                 { label: 'Contact', href: '#contact' },
               ].map((item) => (
@@ -410,6 +421,12 @@ export default function Home() {
                 Laissez-nous votre numéro, un conseiller technique vous rappelle dans les 15 minutes
                 pour évaluer votre besoin.
               </p>
+              {prefilledService && !callbackSent && (
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1a2744]/5 border border-[#1a2744]/20 rounded-full text-sm font-medium text-[#1a2744] mb-6">
+                  <Key className="w-4 h-4 text-[#c9a84c]" />
+                  Service sélectionné : <span className="font-bold">{prefilledService}</span>
+                </div>
+              )}
               {callbackSent ? (
                 <div className="flex flex-col items-center gap-3 py-4">
                   <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
