@@ -383,7 +383,7 @@ export default function Home() {
           <div className="relative z-10 max-w-3xl mx-auto px-4">
             <h2 className="text-4xl font-bold mb-4">Nos tarifs</h2>
             <p className="text-slate-300 text-lg">
-              Prix TTC — déplacement, fournitures et nettoyage inclus. <a href={PHONE_TEL} className="text-[#c9a84c] hover:underline font-semibold">Devis gratuit au {PHONE}.</a>
+              Prix TTC — déplacement, fournitures et nettoyage inclus. <a href={PHONE_TEL} className="text-[#c9a84c] hover:underline font-semibold whitespace-nowrap">Devis gratuit au {PHONE}.</a>
             </p>
           </div>
         </div>
