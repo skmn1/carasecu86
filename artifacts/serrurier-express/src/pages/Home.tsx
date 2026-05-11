@@ -79,7 +79,8 @@ const TARIFS_ROWS: { prestation: string; categorie: TarifsCategory; prix: string
   { prestation: 'Ouverture portail extérieur', categorie: 'Ouverture', prix: '135 € – 190 €' },
 ];
 
-const PHONE = '01 23 45 67 89';
+const PHONE = '07 52 97 48 83';
+const PHONE_TEL = 'tel:+33752974883';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -135,9 +136,10 @@ export default function Home() {
               <div className="bg-[#c9a84c] p-2 rounded-lg">
                 <Lock className="w-6 h-6 text-[#1a2744]" />
               </div>
-              <span className="text-white font-bold text-xl tracking-tight">
-                Serrurier Express
-              </span>
+              <div>
+                <span className="text-white font-bold text-xl tracking-tight block leading-tight">CARASECU 86</span>
+                <span className="text-[#c9a84c] text-xs font-medium tracking-wide">Serrurier — Vitrier</span>
+              </div>
             </a>
 
             {/* Desktop Nav */}
@@ -160,7 +162,7 @@ export default function Home() {
 
             {/* CTA & Mobile Toggle */}
             <div className="flex items-center gap-4">
-              <a href={`tel:${PHONE.replace(/ /g, '')}`}>
+              <a href={PHONE_TEL}>
                 <Button className="hidden md:flex bg-[#c9a84c] hover:bg-[#b09240] text-[#1a2744] font-bold gap-2 rounded-full px-6">
                   <Phone className="w-4 h-4" />
                   Appeler
@@ -204,7 +206,7 @@ export default function Home() {
                 </a>
               ))}
               <div className="px-3 py-2">
-                <a href={`tel:${PHONE.replace(/ /g, '')}`}>
+                <a href={PHONE_TEL}>
                   <Button className="w-full bg-[#c9a84c] hover:bg-[#b09240] text-[#1a2744] font-bold gap-2 rounded-full">
                     <Phone className="w-4 h-4" />
                     Appeler
@@ -227,15 +229,15 @@ export default function Home() {
                 Disponible 24h/24 – 7j/7
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Serrurier agréé, <br />
-                <span className="text-[#c9a84c]">intervention rapide</span>
+                Serrurier — Vitrier agréé, <br />
+                <span className="text-[#c9a84c]">intervention rapide dans tout le département 86</span>
               </h1>
               <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-lg leading-relaxed">
                 Votre artisan serrurier de confiance. Intervention en urgence sans frais de
                 déplacement cachés. Devis 100% gratuit avant toute intervention.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href={`tel:${PHONE.replace(/ /g, '')}`}>
+                <a href={PHONE_TEL}>
                   <Button className="bg-[#c9a84c] hover:bg-[#b09240] text-[#1a2744] font-bold text-lg h-14 px-8 rounded-full shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)] transition-all w-full sm:w-auto">
                     <Phone className="w-5 h-5 mr-2" />
                     Urgence – appeler
@@ -295,10 +297,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center sm:justify-between items-center gap-6">
             {[
-              { icon: <BadgeCheck className="w-5 h-5" />, label: 'Artisan certifié A2P' },
-              { icon: <Clock className="w-5 h-5" />, label: 'Urgence 24h/24' },
-              { icon: <FileText className="w-5 h-5" />, label: 'Devis gratuit & transparent' },
-              { icon: <ShieldCheck className="w-5 h-5" />, label: 'Prise en charge assurance' },
+              { icon: <Clock className="w-5 h-5" />, label: 'Dépannage 24h/24 — 7j/7' },
+              { icon: <FileText className="w-5 h-5" />, label: 'Devis gratuit' },
+              { icon: <Award className="w-5 h-5" />, label: 'Garantie 10 ans' },
+              { icon: <ShieldCheck className="w-5 h-5" />, label: 'Intervention sans dégâts' },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-2 text-[#1a2744] font-semibold">
                 {item.icon}
@@ -322,33 +324,33 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ServiceCard
               icon={<DoorOpen className="w-8 h-8" />}
-              title="Ouverture de porte"
-              description="Porte claquée ou verrouillée, nous l'ouvrons sans détruire votre serrure 9 fois sur 10."
-            />
-            <ServiceCard
-              icon={<Key className="w-8 h-8" />}
-              title="Changement de serrure"
-              description="Remplacement suite à un vol, une perte de clés ou pour améliorer votre sécurité."
-            />
-            <ServiceCard
-              icon={<Car className="w-8 h-8" />}
-              title="Serrurier automobile"
-              description="Ouverture de véhicules toutes marques sans dommages à la carrosserie."
-            />
-            <ServiceCard
-              icon={<Building2 className="w-8 h-8" />}
-              title="Locaux professionnels"
-              description="Solutions de contrôle d'accès et de haute sécurité pour les entreprises."
+              title="Ouvertures de portes"
+              description="Ouverture de tout type de portes, intervention rapide sans dégâts"
             />
             <ServiceCard
               icon={<Shield className="w-8 h-8" />}
               title="Blindage de porte"
-              description="Renforcement de votre porte existante pour résister aux tentatives d'effraction."
+              description="Installation et renforcement de portes blindées toutes marques"
             />
             <ServiceCard
-              icon={<Lock className="w-8 h-8" />}
-              title="Sécurisation"
-              description="Fermeture provisoire après cambriolage et installation de systèmes anti-intrusion."
+              icon={<Wrench className="w-8 h-8" />}
+              title="Remplacement de vitrage"
+              description="Remplacement rapide de vitrage cassé ou fissuré"
+            />
+            <ServiceCard
+              icon={<ThumbsUp className="w-8 h-8" />}
+              title="Réparation après effraction"
+              description="Sécurisation et remise en état après cambriolage"
+            />
+            <ServiceCard
+              icon={<Key className="w-8 h-8" />}
+              title="Serrures toutes marques"
+              description="Pose et remplacement de serrures, matériel de qualité garanti"
+            />
+            <ServiceCard
+              icon={<Clock className="w-8 h-8" />}
+              title="Dépannage d'urgence"
+              description="Intervention 24h/24 et 7j/7, déplacement rapide"
             />
           </div>
         </div>
@@ -383,7 +385,7 @@ export default function Home() {
             <p className="text-slate-300 text-lg">
               Prix TTC — déplacement, fournitures et nettoyage inclus.{' '}
               <a
-                href={`tel:${PHONE.replace(/ /g, '')}`}
+                href={PHONE_TEL}
                 className="text-[#c9a84c] hover:underline font-semibold"
               >
                 Devis gratuit au {PHONE}.
@@ -517,7 +519,7 @@ export default function Home() {
                 Ne paniquez pas. Un serrurier est chez vous dans moins de 30 minutes.
               </p>
             </div>
-            <a href={`tel:${PHONE.replace(/ /g, '')}`} className="shrink-0">
+            <a href={PHONE_TEL} className="shrink-0">
               <Button className="bg-white text-[#ED2939] hover:bg-slate-100 font-bold text-xl h-16 px-10 rounded-full shadow-xl hover:scale-105 transition-transform">
                 <Phone className="w-6 h-6 mr-3" />
                 {PHONE}
@@ -668,13 +670,12 @@ export default function Home() {
                 <div className="bg-[#c9a84c] p-2 rounded-lg">
                   <Lock className="w-5 h-5 text-[#1a2744]" />
                 </div>
-                <span className="text-white font-bold text-xl tracking-tight">Serrurier Express</span>
+                <span className="text-white font-bold text-xl tracking-tight">CARASECU 86</span>
               </div>
               <p className="text-slate-400 max-w-sm mb-6 leading-relaxed">
-                Intervention d'urgence en serrurerie 24h/24 et 7j/7. Artisans certifiés et tarifs
-                transparents.
+                Artisan serrurier-vitrier, disponible 24h/24 et 7j/7. Ouvertures, blindage, remplacement de vitrage et réparation après effraction. Garantie 10 ans sur nos interventions.
               </p>
-              <a href={`tel:${PHONE.replace(/ /g, '')}`}>
+              <a href={PHONE_TEL}>
                 <Button className="bg-[#c9a84c] hover:bg-[#b09240] text-[#1a2744] font-bold gap-2 rounded-full">
                   <Phone className="w-4 h-4" />
                   {PHONE}
@@ -718,9 +719,9 @@ export default function Home() {
           </div>
 
           <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <div>© 2026 Serrurier Express. Tous droits réservés.</div>
+            <div>© 2026 CARASECU 86. Tous droits réservés.</div>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <span>SIRET 123 456 789</span>
+              <span>SIRET 789 811 924 00032</span>
               <span className="hidden sm:inline">•</span>
               <span className="flex items-center gap-1 text-slate-400">
                 <ShieldCheck className="w-4 h-4" /> Certifié A2P

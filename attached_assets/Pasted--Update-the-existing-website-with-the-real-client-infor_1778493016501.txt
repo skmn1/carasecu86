@@ -1,0 +1,29 @@
+
+
+Update the existing website with the real client information. Do not change the layout, design, or structure — only replace the placeholder content with the following real data.
+Business name: Replace "Serrurier Express" with CARASECU 86 everywhere on the site (navbar logo, hero, footer, page title, meta description, Schema.org).
+Activity: Add "Serrurier — Vitrier" as the subtitle under the business name in the navbar and hero section.
+Phone number: Replace all occurrences of the placeholder phone number with 07 52 97 48 83. This includes the navbar CTA button, the hero CTA, the emergency red banner, and the footer. The phone link must use href="tel:+33752974883".
+SIRET: Replace the placeholder SIRET in the footer bottom bar with 789 811 924 00032.
+Guarantee badge: Add a "Garantie 10 ans" trust badge in the trust bar, alongside the existing badges.
+Services grid: Replace the 6 service cards with the following real services:
+
+Ouvertures de portes — "Ouverture de tout type de portes, intervention rapide sans dégâts"
+Blindage de porte — "Installation et renforcement de portes blindées toutes marques"
+Remplacement de vitrage — "Remplacement rapide de vitrage cassé ou fissuré"
+Réparation après effraction — "Sécurisation et remise en état après cambriolage"
+Serrures toutes marques — "Pose et remplacement de serrures, matériel de qualité garanti"
+Dépannage d'urgence — "Intervention 24h/24 et 7j/7, déplacement rapide"
+
+Trust bar: Update the 4 trust items to:
+
+"Dépannage 24h/24 — 7j/7"
+"Devis gratuit"
+"Garantie 10 ans"
+"Intervention sans dégâts"
+
+Hero headline: Update to "Serrurier — Vitrier agréé, intervention rapide dans tout le département 86"
+Footer description: Update to "Artisan serrurier-vitrier, disponible 24h/24 et 7j/7. Ouvertures, blindage, remplacement de vitrage et réparation après effraction. Garantie 10 ans sur nos interventions."
+Page title tag: <title>CARASECU 86 — Serrurier Vitrier | Dépannage Urgence 24h/24 | Vienne (86)</title>
+Meta description: <meta name="description" content="CARASECU 86, votre serrurier-vitrier en urgence dans la Vienne (86). Ouverture de porte, blindage, remplacement de vitrage. Devis gratuit — Garantie 10 ans. Appelez le 07 52 97 48 83.">
+Do not modify the pricing section, the zones section, the reviews section, the contact form, or any CSS/JS files.
