@@ -432,8 +432,8 @@ export function SerrurierExpress() {
             </div>
             <div className="flex items-center gap-4">
               <a href="#" className="hover:text-slate-300">Mentions légales</a>
-              <a href="https://votre-site.dev" className="bg-slate-800 px-3 py-1 rounded text-slate-400 hover:text-white transition-colors border border-slate-700">
-                Développé par [Votre Nom]
+              <a href="https://www.linkedin.com/in/soulimane-kamni/" className="bg-slate-800 px-3 py-1 rounded text-slate-400 hover:text-white transition-colors border border-slate-700">
+                Développé par Dr. Soulimane KAMNI
               </a>
             </div>
           </div>
