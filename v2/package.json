@@ -2,7 +2,9 @@
   "name": "v2",
   "private": true,
   "scripts": {
+    "build": "pnpm --filter @v2/web run build",
     "build:web": "pnpm --filter @v2/web run build",
+    "vercel-build": "pnpm --filter @v2/web run build",
     "typecheck": "pnpm -r --if-present run typecheck"
   },
   "devDependencies": {
