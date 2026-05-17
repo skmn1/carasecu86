@@ -1,0 +1,19 @@
+{
+  "name": "@v2/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.2",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8",
+    "drizzle-kit": "^0.31.0",
+    "typescript": "^5.9.0"
+  }
+}

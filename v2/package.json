@@ -1,0 +1,11 @@
+{
+  "name": "v2",
+  "private": true,
+  "scripts": {
+    "build:web": "pnpm --filter @v2/web run build",
+    "typecheck": "pnpm -r --if-present run typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  }
+}
