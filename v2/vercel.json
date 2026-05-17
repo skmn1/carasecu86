@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "outputDirectory": "apps/web/dist",
-  "buildCommand": "cd apps/web && pnpm run build",
   "builds": [
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "pnpm run build"
+      }
+    },
     {
       "src": "api/*.ts",
       "use": "@vercel/node"
