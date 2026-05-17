@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "pnpm --filter @v2/web run build",
+  "buildCommand": "cd v2/apps/web && pnpm install && pnpm run build",
   "outputDirectory": "v2/apps/web/dist",
   "builds": [
     {
