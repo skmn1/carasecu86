@@ -1,4 +1,4 @@
-import express from "express";
+import express, { type Request, type Response } from "express";
 import cors from "cors";
 import pino from "pino";
 import { pinoHttp } from "pino-http";
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/api/healthz", (_req, res) => {
+app.get("/api/healthz", (_req: Request, res: Response) => {
   const data = HealthCheckResponse.parse({ status: "ok" });
   res.json(data);
 });
