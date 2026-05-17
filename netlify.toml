@@ -1,0 +1,9 @@
+[build]
+  base = "artifacts/serrurier-express"
+  command = "pnpm run build"
+  publish = "artifacts/serrurier-express/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
