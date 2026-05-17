@@ -2,7 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
-    "types": ["node", "express"]
+    "types": ["node"]
   },
   "include": ["./*.ts"]
 }
