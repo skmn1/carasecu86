@@ -45,6 +45,22 @@ const TARIFS_FILTERS: Array<{ label: string; value: TarifsCategory | 'Toutes' }>
 
 const TARIFS_DEFAULT_VISIBLE = 10;
 
+const ZONES_VIENNE = [
+  'Poitiers', 'Châtellerault', 'Buxerolles', 'Jaunay-Marigny', 'Saint-Benoît',
+  'Chauvigny', 'Loudun', 'Vouneuil-sous-Biard', 'Migné-Auxances', 'Naintré',
+  'Montmorillon', 'Neuville-de-Poitou', 'Mignaloux-Beauvoir', 'Chasseneuil-du-Poitou',
+  'Vivonne', 'Saint-Georges-lès-Baillargeaux', 'Valence-en-Poitou', 'Fontaine-le-Comte',
+  'Montamisé', 'Dangé-Saint-Romain',
+];
+
+const ZONES_DEUX_SEVRES = [
+  'Niort', 'Bressuire', 'Thouars', 'Parthenay', 'Mauléon', "Saint-Maixent-l'École",
+  'Chauray', 'Melle', 'La Crèche', 'Nueil-les-Aubiers', 'Aiffres', 'Moncoutant-sur-Sèvre',
+  'Cerizay', 'Aigondigné', 'Celles-sur-Belle',
+];
+
+const ZONES_DEFAULT_VISIBLE = 10;
+
 const TARIFS_ROWS: { prestation: string; categorie: TarifsCategory; prix: string }[] = [
   { prestation: 'Ouverture porte simple claquée', categorie: 'Ouverture', prix: '110 € – 135 €' },
   { prestation: 'Ouverture porte simple fermée à clé', categorie: 'Ouverture', prix: '135 € – 180 €' },
@@ -90,6 +106,7 @@ export default function Home() {
   const [prefilledService, setPrefilledService] = useState('');
   const [tarifsFilter, setTarifsFilter] = useState<TarifsCategory | 'Toutes'>('Toutes');
   const [tarifsExpanded, setTarifsExpanded] = useState(false);
+  const [zonesExpanded, setZonesExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -574,32 +591,61 @@ export default function Home() {
       <section id="zones-dintervention" className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <MapPin className="w-12 h-12 text-[#002395] mx-auto mb-6" />
-          <h2 className="text-3xl font-bold text-[#1a2744] mb-8">Zones d'intervention</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'Paris',
-              'Boulogne-Billancourt',
-              'Versailles',
-              'Saint-Denis',
-              'Nanterre',
-              'Créteil',
-              'Vincennes',
-              'Montreuil',
-              'Issy-les-Moulineaux',
-              'Neuilly-sur-Seine',
-              'Levallois-Perret',
-              'Clichy',
-            ].map((city) => (
-              <span
-                key={city}
-                className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm hover:border-[#002395] hover:text-[#002395] cursor-default transition-colors"
+          <h2 className="text-3xl font-bold text-[#1a2744] mb-3">Zones d'intervention</h2>
+          <p className="text-slate-500 text-base mb-8">35 communes couvertes — Vienne (86) et Deux-Sèvres (79)</p>
+          <div className="space-y-5">
+            {/* Vienne (86) group */}
+            <div>
+              <div className="flex items-center gap-3 mb-3 justify-center">
+                <div className="h-px w-12 bg-slate-300" />
+                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Vienne (86)</span>
+                <div className="h-px w-12 bg-slate-300" />
+              </div>
+              <div className="flex flex-wrap justify-center gap-3">
+                {(zonesExpanded ? ZONES_VIENNE : ZONES_VIENNE.slice(0, ZONES_DEFAULT_VISIBLE)).map((city) => (
+                  <span
+                    key={city}
+                    className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm hover:border-[#002395] hover:text-[#002395] cursor-default transition-colors"
+                  >
+                    {city}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Deux-Sèvres (79) group — animated in/out */}
+            <div
+              className="overflow-hidden transition-all duration-500 ease-in-out"
+              style={{ maxHeight: zonesExpanded ? '600px' : '0px', opacity: zonesExpanded ? 1 : 0 }}
+            >
+              <div className="flex items-center gap-3 mb-3 justify-center">
+                <div className="h-px w-12 bg-slate-300" />
+                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Deux-Sèvres (79)</span>
+                <div className="h-px w-12 bg-slate-300" />
+              </div>
+              <div className="flex flex-wrap justify-center gap-3">
+                {ZONES_DEUX_SEVRES.map((city) => (
+                  <span
+                    key={city}
+                    className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm hover:border-[#002395] hover:text-[#002395] cursor-default transition-colors"
+                  >
+                    {city}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Expand / collapse chip */}
+            <div className="flex justify-center pt-1">
+              <button
+                onClick={() => setZonesExpanded(!zonesExpanded)}
+                className="px-4 py-2 bg-[#002395] text-white rounded-full text-sm font-medium shadow-sm hover:bg-[#001a7a] transition-colors cursor-pointer"
               >
-                {city}
-              </span>
-            ))}
-            <span className="px-4 py-2 bg-[#002395] text-white rounded-full text-sm font-medium shadow-sm cursor-default">
-              + 42 communes
-            </span>
+                {zonesExpanded
+                  ? 'Voir moins'
+                  : `+ ${ZONES_VIENNE.length + ZONES_DEUX_SEVRES.length - ZONES_DEFAULT_VISIBLE} communes`}
+              </button>
+            </div>
           </div>
         </div>
       </section>
