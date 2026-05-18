@@ -62,37 +62,37 @@ const ZONES_DEUX_SEVRES = [
 const ZONES_DEFAULT_VISIBLE = 10;
 
 const TARIFS_ROWS: { prestation: string; categorie: TarifsCategory; prix: string }[] = [
-  { prestation: 'Ouverture porte simple claquée', categorie: 'Ouverture', prix: '110 € – 135 €' },
-  { prestation: 'Ouverture porte simple fermée à clé', categorie: 'Ouverture', prix: '135 € – 180 €' },
-  { prestation: 'Ouverture porte blindée claquée', categorie: 'Ouverture', prix: '110 € – 150 €' },
-  { prestation: 'Ouverture porte blindée fermée à clé', categorie: 'Ouverture', prix: '135 € – 190 €' },
-  { prestation: 'Clé cassée dans la serrure', categorie: 'Urgence', prix: '120 € – sur devis' },
-  { prestation: 'Intervention après cambriolage', categorie: 'Urgence', prix: '120 € – sur devis' },
-  { prestation: 'Fermeture provisoire (effraction)', categorie: 'Urgence', prix: '150 € – 250 €' },
-  { prestation: 'Installation cylindre simple européen', categorie: 'Installation', prix: '110 € – 150 €' },
-  { prestation: 'Installation cylindre blindé', categorie: 'Installation', prix: '150 € – sur devis' },
-  { prestation: 'Installation serrure simple', categorie: 'Installation', prix: '150 € – 250 €' },
-  { prestation: 'Installation serrure blindée 3 points', categorie: 'Installation', prix: '390 € – sur devis' },
-  { prestation: 'Installation serrure blindée 5-7 points', categorie: 'Installation', prix: '700 € – sur devis' },
-  { prestation: 'Installation serrure connectée', categorie: 'Installation', prix: '300 € – 600 €' },
-  { prestation: 'Installation porte blindée', categorie: 'Installation', prix: '1 990 € – sur devis' },
-  { prestation: 'Installation verrou simple', categorie: 'Installation', prix: '110 € – 190 €' },
-  { prestation: 'Installation verrou haute sécurité', categorie: 'Installation', prix: '220 € – sur devis' },
-  { prestation: 'Installation judas de porte', categorie: 'Installation', prix: '110 € – 190 €' },
-  { prestation: 'Installation cornière anti-pince', categorie: 'Installation', prix: '180 € – 300 €' },
-  { prestation: 'Installation gâche électrique', categorie: 'Installation', prix: '300 € – 600 €' },
-  { prestation: 'Installation boîte à clé', categorie: 'Installation', prix: '160 € – 260 €' },
-  { prestation: 'Réparation serrure simple', categorie: 'Réparation', prix: '120 € – sur devis' },
-  { prestation: 'Réparation serrure blindée 3 points', categorie: 'Réparation', prix: '120 € – 200 €' },
-  { prestation: 'Réparation cylindre simple européen', categorie: 'Réparation', prix: '80 € – 150 €' },
-  { prestation: 'Réparation poignée de porte', categorie: 'Réparation', prix: '120 € – 210 €' },
-  { prestation: 'Réparation verrou simple', categorie: 'Réparation', prix: '80 € – 150 €' },
-  { prestation: 'Dégrippage de serrure', categorie: 'Réparation', prix: '130 € – 180 €' },
-  { prestation: 'Ouverture boîte aux lettres', categorie: 'Ouverture', prix: '70 € – 110 €' },
-  { prestation: 'Installation serrure boîte aux lettres', categorie: 'Installation', prix: '70 € – 110 €' },
-  { prestation: 'Ouverture coffre-fort', categorie: 'Ouverture', prix: '159 € – sur devis' },
-  { prestation: 'Ouverture porte de garage', categorie: 'Ouverture', prix: '135 € – sur devis' },
-  { prestation: 'Ouverture portail extérieur', categorie: 'Ouverture', prix: '135 € – 190 €' },
+  { prestation: 'Ouverture porte simple claquée', categorie: 'Ouverture', prix: '80 € – 105 €' },
+  { prestation: 'Ouverture porte simple fermée à clé', categorie: 'Ouverture', prix: '105 € – 150 €' },
+  { prestation: 'Ouverture porte blindée claquée', categorie: 'Ouverture', prix: '80 € – 120 €' },
+  { prestation: 'Ouverture porte blindée fermée à clé', categorie: 'Ouverture', prix: '105 € – 160 €' },
+  { prestation: 'Clé cassée dans la serrure', categorie: 'Urgence', prix: '90 € – sur devis' },
+  { prestation: 'Intervention après cambriolage', categorie: 'Urgence', prix: '90 € – sur devis' },
+  { prestation: 'Fermeture provisoire (effraction)', categorie: 'Urgence', prix: '120 € – 220 €' },
+  { prestation: 'Installation cylindre simple européen', categorie: 'Installation', prix: '80 € – 120 €' },
+  { prestation: 'Installation cylindre blindé', categorie: 'Installation', prix: '120 € – sur devis' },
+  { prestation: 'Installation serrure simple', categorie: 'Installation', prix: '120 € – 220 €' },
+  { prestation: 'Installation serrure blindée 3 points', categorie: 'Installation', prix: '360 € – sur devis' },
+  { prestation: 'Installation serrure blindée 5-7 points', categorie: 'Installation', prix: '670 € – sur devis' },
+  { prestation: 'Installation serrure connectée', categorie: 'Installation', prix: '270 € – 570 €' },
+  { prestation: 'Installation porte blindée', categorie: 'Installation', prix: '1 960 € – sur devis' },
+  { prestation: 'Installation verrou simple', categorie: 'Installation', prix: '80 € – 160 €' },
+  { prestation: 'Installation verrou haute sécurité', categorie: 'Installation', prix: '190 € – sur devis' },
+  { prestation: 'Installation judas de porte', categorie: 'Installation', prix: '80 € – 160 €' },
+  { prestation: 'Installation cornière anti-pince', categorie: 'Installation', prix: '150 € – 270 €' },
+  { prestation: 'Installation gâche électrique', categorie: 'Installation', prix: '270 € – 570 €' },
+  { prestation: 'Installation boîte à clé', categorie: 'Installation', prix: '130 € – 230 €' },
+  { prestation: 'Réparation serrure simple', categorie: 'Réparation', prix: '90 € – sur devis' },
+  { prestation: 'Réparation serrure blindée 3 points', categorie: 'Réparation', prix: '90 € – 170 €' },
+  { prestation: 'Réparation cylindre simple européen', categorie: 'Réparation', prix: '50 € – 120 €' },
+  { prestation: 'Réparation poignée de porte', categorie: 'Réparation', prix: '90 € – 180 €' },
+  { prestation: 'Réparation verrou simple', categorie: 'Réparation', prix: '50 € – 120 €' },
+  { prestation: 'Dégrippage de serrure', categorie: 'Réparation', prix: '100 € – 150 €' },
+  { prestation: 'Ouverture boîte aux lettres', categorie: 'Ouverture', prix: '40 € – 80 €' },
+  { prestation: 'Installation serrure boîte aux lettres', categorie: 'Installation', prix: '40 € – 80 €' },
+  { prestation: 'Ouverture coffre-fort', categorie: 'Ouverture', prix: '129 € – sur devis' },
+  { prestation: 'Ouverture porte de garage', categorie: 'Ouverture', prix: '105 € – sur devis' },
+  { prestation: 'Ouverture portail extérieur', categorie: 'Ouverture', prix: '105 € – 160 €' },
 ];
 
 const PHONE = '07 52 97 48 83';
@@ -419,10 +419,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { icon: <DoorOpen className="w-6 h-6" />, label: 'Ouverture de porte', prix: '110 € – 190 €' },
-                { icon: <Key className="w-6 h-6" />, label: 'Remplacement de cylindre', prix: '110 € – 150 €' },
-                { icon: <Wrench className="w-6 h-6" />, label: 'Réparation de serrure', prix: '120 € – 300 €' },
-                { icon: <Shield className="w-6 h-6" />, label: 'Porte blindée', prix: 'à partir de 1 990 €' },
+                { icon: <DoorOpen className="w-6 h-6" />, label: 'Ouverture de porte', prix: '80 € – 160 €' },
+                { icon: <Key className="w-6 h-6" />, label: 'Remplacement de cylindre', prix: '80 € – 120 €' },
+                { icon: <Wrench className="w-6 h-6" />, label: 'Réparation de serrure', prix: '90 € – 270 €' },
+                { icon: <Shield className="w-6 h-6" />, label: 'Porte blindée', prix: 'à partir de 1 960 €' },
               ].map((card) => (
                 <div key={card.label} className="text-center p-6 rounded-2xl border border-slate-100 bg-white shadow-sm">
                   <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-[#1a2744] mx-auto mb-4">
@@ -507,9 +507,7 @@ export default function Home() {
                   )}
                   <div className="px-6 py-4 border-t border-slate-100 bg-slate-50">
                     <p className="text-xs text-slate-400 leading-relaxed">
-                      Prix TTC — déplacement, main d'œuvre et nettoyage inclus. Tarifs observés sur le
-                      marché français en 2025, fournis à titre indicatif. Un devis personnalisé vous
-                      sera remis avant toute intervention.
+                      Prix TTC — déplacement, main d'œuvre et nettoyage inclus. Tarifs mis à jour en 2026. Un devis personnalisé vous sera remis avant toute intervention.
                     </p>
                   </div>
                 </div>
