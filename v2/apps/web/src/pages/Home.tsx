@@ -270,39 +270,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Floating Status Card */}
-            <div className="relative mx-auto w-full max-w-md lg:ml-auto">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#002395] to-[#c9a84c] opacity-20 rounded-3xl blur-2xl transform -rotate-6" />
-              <div className="bg-slate-800/80 backdrop-blur-xl border border-slate-700 p-8 rounded-3xl relative shadow-2xl">
-                <div className="flex items-center gap-4 mb-6 pb-6 border-b border-slate-700">
-                  <div className="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
-                    <UserIcon className="w-8 h-8 text-[#c9a84c]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">Technicien local</h3>
-                    <div className="flex items-center gap-1.5 mt-1">
-                      <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      <p className="text-slate-400 text-sm">Prêt à intervenir</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between bg-slate-900/50 p-4 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <Clock className="w-5 h-5 text-[#c9a84c]" />
-                      <span className="font-medium text-slate-200">Arrivée estimée</span>
-                    </div>
-                    <span className="font-bold text-xl text-white">~25 min</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-slate-900/50 p-4 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <Star className="w-5 h-5 text-[#c9a84c] fill-[#c9a84c]" />
-                      <span className="font-medium text-slate-200">Note clients</span>
-                    </div>
-                    <span className="font-bold text-xl text-white">4.9/5</span>
-                  </div>
-                </div>
-              </div>
+            {/* Hero Image */}
+            <div className="relative mx-auto w-full max-w-lg lg:ml-auto flex items-center justify-center">
+              <img
+                src="/hero-image.png"
+                alt="Serrurier — clés et serrures"
+                className="w-full"
+                style={{
+                  filter:
+                    'drop-shadow(0px 0px 60px rgba(212, 175, 55, 0.5)) drop-shadow(0px 0px 120px rgba(212, 175, 55, 0.25))',
+                  minWidth: '400px',
+                }}
+              />
             </div>
           </div>
         </div>
@@ -861,25 +840,5 @@ function ReviewCard({
         <span className="text-slate-400">{city}</span>
       </div>
     </div>
-  );
-}
-
-function UserIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
   );
 }
