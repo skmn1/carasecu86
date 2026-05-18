@@ -271,7 +271,7 @@ export default function Home() {
             </div>
 
             {/* Hero Image */}
-            <div className="relative mx-auto w-full max-w-lg lg:ml-auto flex items-center justify-center">
+            <div className="relative mx-auto w-full lg:ml-auto flex items-center justify-center">
               <img
                 src="/hero-image.png"
                 alt="Serrurier — clés et serrures"
@@ -279,7 +279,9 @@ export default function Home() {
                 style={{
                   filter:
                     'drop-shadow(0px 0px 60px rgba(212, 175, 55, 0.5)) drop-shadow(0px 0px 120px rgba(212, 175, 55, 0.25))',
-                  minWidth: '400px',
+                  minWidth: '320px',
+                  width: '100%',
+                  maxWidth: '620px',
                 }}
               />
             </div>
