@@ -247,11 +247,10 @@ export default function Home() {
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Serrurier — Vitrier agréé, <br />
-                <span className="text-[#c9a84c]">intervention rapide dans tout le département 86</span>
+                <span className="text-[#c9a84c]">intervention rapide dans la Vienne (86) et les Deux-Sèvres (79)</span>
               </h1>
               <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-lg leading-relaxed">
-                Votre artisan serrurier de confiance. Intervention en urgence sans frais de
-                déplacement cachés. Devis 100% gratuit avant toute intervention.
+                Votre artisan serrurier-vitrier de confiance. Intervention en urgence 24h/24 — 7j/7, sans frais de déplacement cachés. Devis 100% gratuit avant toute intervention. Garantie 10 ans.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href={PHONE_TEL}>
